@@ -1,0 +1,26 @@
+npx prettier --write .
+
+สำหรับสร้าง crud
+nest g resource [name]
+
+สำหรับสร้าง controller
+nest g controller [name]
+
+npx typeorm migration:run -d ormconfig.ts
+
+npx typeorm migration:revert -d ormconfig.ts
+
+npx typeorm migration:show -d ormconfig.ts
+
+node --require ts-node/register node_modules/typeorm/cli.js migration:generate -d data-source.ts src/migrations/CreateUsersTable
+
+node --require ts-node/register node_modules/typeorm/cli.js migration:run -d data-source.ts
+
+npx nest g module users	สร้างโมดูล user.module.ts
+npx nest g class users/user.entity --no-spec	สร้าง Entity user.entity.ts
+npx nest g service users	สร้าง Service user.service.ts
+npx nest g controller users	สร้าง Controller user.controller.ts
+npx nest g class users/dto/create-user.dto --no-spec	สร้าง DTO สำหรับ CreateUserDto
+npx nest g class users/dto/update-user.dto --no-spec	สร้าง DTO สำหรับ UpdateUserDto
+npx ts-node -r tsconfig-paths/register node_modules/typeorm/cli.js migration:generate -d src/data-source.ts src/migrations/CreateUsersTable	สร้าง Migration
+npx ts-node -r tsconfig-paths/register node_modules/typeorm/cli.js migration:run -d src/data-source.ts	รัน Migration เพื่อสร้างตาราง
